@@ -1,5 +1,5 @@
 // Tenemos un li de productos
-
+//cambiar imagenes a una nueva carpeta para que se vea mas ordeando
 const productos = [
   {
     nombre: "Zapato negro",
@@ -33,15 +33,14 @@ const productos = [
   },
 ];
 
-const li = document.getElementsByName("#lista-de-productos");
-//console.log(li);
-const input = document.querySelector(".input"); //cambiar nombre de $i por input
-console.log(input);
+const li = document.getElementById("lista-de-productos"); //cambiar metodo id,
+const input = document.querySelector("input"); //cambiar nombre de $i por input
+
 for (let i = 0; i < productos.length; i++) {
-  const d = document.createElement("div");
+  const d = document.createElement("div"); //cambiar a const
   d.classList.add("producto");
 
-  const ti = document.createElement("p");
+  const ti = document.createElement("p"); //cambiar a const
   ti.classList.add("titulo");
   ti.textContent = productos[i].nombre;
 
@@ -54,10 +53,11 @@ for (let i = 0; i < productos.length; i++) {
   li.appendChild(d);
 }
 
-displayProductos(productos);
+// displayProductos(productos);// funcion no tiene sentido, no esta definida
+
 const botonDeFiltro = document.querySelector("button");
+
 botonDeFiltro.onclick = function () {
-  console.log(botonDeFiltro);
   while (li.firstChild) {
     li.removeChild(li.firstChild);
   }
@@ -67,14 +67,14 @@ botonDeFiltro.onclick = function () {
   const productosFiltrados = filtrado(productos, texto);
 
   for (let i = 0; i < productosFiltrados.length; i++) {
-    var d = document.createElement("div");
+    const d = document.createElement("div");//cambiar a const
     d.classList.add("producto");
 
-    var ti = document.createElement("p");
+    const ti = document.createElement("p");//cambiar a const
     ti.classList.add("titulo");
     ti.textContent = productosFiltrados[i].nombre;
 
-    var imagen = document.createElement("img");
+    const imagen = document.createElement("img");//cambiar a const
     imagen.setAttribute("src", productosFiltrados[i].img);
 
     d.appendChild(ti);
